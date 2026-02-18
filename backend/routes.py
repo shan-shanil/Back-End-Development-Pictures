@@ -46,7 +46,7 @@ def get_pictures():
 def get_picture_by_id(id):
     for picture in data:
         if picture["id"] == id:
-            return jsonify(picture), 200
+            return picture
 
     return {"message": "Picture not found"}, 404
 
@@ -69,7 +69,7 @@ def create_picture():
     # Append new picture
     data.append(picture)
 
-    return jsonify(picture), 201
+    return picture, 201
 
 ######################################################################
 # UPDATE A PICTURE
@@ -83,7 +83,7 @@ def update_picture(id):
     for index, picture in enumerate(data):
         if picture["id"] == id:
             data[index] = updated_data
-            return jsonify(updated_data), 200
+            return picture, 201
 
     return {"message": "picture not found"}, 404
 
